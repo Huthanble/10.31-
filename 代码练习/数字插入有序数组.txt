@@ -1,0 +1,37 @@
+已有一个已正序排好的9个元素的数组，今输入一个数要求按原来排序的规律将它插入数组中。
+输入格式
+第一行，原始数列。 第二行，需要插入的数字。
+#include <stdio.h>
+
+int main()
+{
+    int a[10];
+    int i = 0;
+    int t;
+    for (i = 0; i < 9; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    a[9] = 0;
+    int x;
+    scanf("%d", &x);
+    for (i = 0; i < 10; i++)
+    {
+        if (x >= a[i] && x <= a[i + 1])
+        {
+            t = i + 1;
+            break;
+        }
+    }
+    for (i = 9; i > t; i--)
+    {
+        a[i] = a[i - 1];
+    }
+    a[t] = x;
+
+    for (i = 0; i < 10; i++)
+    {
+        printf("%d\n", a[i]);
+    }
+    return 0;
+}

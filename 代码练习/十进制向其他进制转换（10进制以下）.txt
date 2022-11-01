@@ -1,0 +1,22 @@
+编程，输入一个10进制正整数，然后输出它所对应的八进制数。（若要改变进制需改变define后的值）
+#include<stdio.h>
+#define jinzhi 8
+int m = 0;
+void zhuanhuan(int y)
+{
+	if(y)
+	{
+		int tmp = y;
+		y /= jinzhi;
+		zhuanhuan(y);
+		m = tmp % jinzhi;
+		printf("%d", m);
+	}
+}
+int main()
+{
+	int x = 0;
+	scanf("%d", &x);
+	zhuanhuan(x);
+	return 0;
+}

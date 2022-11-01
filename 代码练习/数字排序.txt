@@ -1,0 +1,38 @@
+用选择法对10个整数从小到大排序。
+#include <stdio.h>
+void paixu(int arr[12])
+{
+	for (int j = 0; j < 9; j++)
+	{
+		for (int n = j + 1; n < 10; n++)
+		{
+			if (arr[j] <= arr[n])
+			{
+				continue;
+			}
+			else
+			{
+				int tmp = 0;
+				tmp = arr[n];
+				arr[n] = arr[j];
+				arr[j] = tmp;
+			}
+		}
+	 }
+}
+int main()
+{
+	int x=0;
+	int arr[12] = { 0 };
+	for (int i = 0; i <= 9; i++)
+	{
+		scanf("%d", &x);
+		arr[i] = x;
+	}
+	paixu(arr);
+	for (int m = 0; m < 10; m++)
+	{
+		printf("%d\n", arr[m]);
+	}
+	return 0;
+}
